@@ -15,20 +15,20 @@ replace_in_file() {
   fi
 }
 
-echo "Patching Flutter plugin compileSdk versions to 36..."
+echo "Patching Flutter plugin compileSdk versions to 37..."
 
 # Groovy DSL
 find "$PUB_CACHE" -type f -name "*.gradle" | while read -r file; do
-  replace_in_file 's/compileSdkVersion[[:space:]]+[0-9]+/compileSdkVersion 36/g' "$file"
+  replace_in_file 's/compileSdkVersion[[:space:]]+[0-9]+/compileSdkVersion 37/g' "$file"
 
-  replace_in_file 's/compileSdk[[:space:]]+[=:][[:space:]]*[0-9]+/compileSdk = 36/g' "$file"
+  replace_in_file 's/compileSdk[[:space:]]+[=:][[:space:]]*[0-9]+/compileSdk = 37/g' "$file"
 done
 
 # Kotlin DSL
 find "$PUB_CACHE" -type f -name "*.gradle.kts" | while read -r file; do
-  replace_in_file 's/compileSdk[[:space:]]*=[[:space:]]*[0-9]+/compileSdk = 36/g' "$file"
+  replace_in_file 's/compileSdk[[:space:]]*=[[:space:]]*[0-9]+/compileSdk = 37/g' "$file"
 
-  replace_in_file 's/compileSdkVersion\([[:space:]]*[0-9]+[[:space:]]*\)/compileSdkVersion(36)/g' "$file"
+  replace_in_file 's/compileSdkVersion\([[:space:]]*[0-9]+[[:space:]]*\)/compileSdkVersion(37)/g' "$file"
 done
 
 echo "Done."

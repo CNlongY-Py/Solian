@@ -19,7 +19,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "dev.solsynth.solian"
-    compileSdk = 36
+    compileSdk = 37
     ndkVersion = "29.0.13113456"
 
     compileOptions {
